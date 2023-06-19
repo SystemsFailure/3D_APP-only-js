@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+    --transition: 1.5s cubic-bezier(.05, 0,5, 0.0, 1.0);
+}
+
+@font-face {
+    font-family: kameric-3d;
+    src: url(../fonts/kamerik205-heavy.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: merriweather-italic-3d;
+    src: url(../fonts/merriweather-regular-italic.woff2);
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: kameric-3d;
+}
+
+.layers  {
+    perspective: 1500px;
+    overflow: hidden;
+}
+
+.layers__container {
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    will-change: transform;
+    transition: transform var(--transition);
+}
+
+.layers__item {
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    inset: -2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layer-1 {
+    transform: translateZ(-55px) scale(1.05);
+}
+
+.layer-2 {
+    transform: translateZ(60px) scale(.88);
+}
+
+.layer-3 {
+    transform: translateZ(50px) scale(.88);
+}
+
+.layer-4 {
+    transform: translateZ(10px) scale(.88);
+}
+
+.layer-5 {
+    transform: translateZ(10px) scale(.88);
+}
+
+.layer-7 {
+    transform: translateZ(120px) scale(1.5);
+    opacity: 0.5;
+}
+
+.layer-8 {
+    transform: translateZ(120px) scale(1.5);
+}
+
+.layer-6 {
+    position: absolute;
+    transform: translateZ(100px);
+}
+
+.hero-content {
+    font-size: calc(var(--index) * 2);
+    text-transform: uppercase;
+    letter-spacing: calc(var(--index) * -.15);
+    line-height: 1.3em;
+}
+
+.hero-content span {
+    display: block;
+}
+
+.button-start {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: calc(var(--index) * .75);
+    letter-spacing: -.02vw;
+    padding: 15px 15px;
+    background-color: transparent;
+    color: white;
+    border-radius: 10em;
+    margin-top: calc(var(--index) * 0.5);
+    border: 1px solid rgb(255, 255, 255 / .3);
+    outline: none;
+    cursor: pointer;
+}
+
+.layer-3 .layer-7 .layer-3 .layer-2{
+    pointer-events: none;
+}
+
+.layer-7 {
+    pointer-events: none;
+}
+
+.layer-8 {
+    pointer-events: none;
+}
